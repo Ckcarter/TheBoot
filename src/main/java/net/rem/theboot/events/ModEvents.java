@@ -17,6 +17,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.rem.theboot.TheBoot;
 import net.rem.theboot.entity.custom.BootEntity;
 import net.rem.theboot.events.custom.DeathTextEvent;
+import net.rem.theboot.item.ModItems;
 
 @Mod.EventBusSubscriber(modid = TheBoot.MOD_ID)
 public class ModEvents {
@@ -25,7 +26,7 @@ public class ModEvents {
     public static void livingDamage(LivingDamageEvent event){
         if(event.getEntity() instanceof Sheep){
             if(event.getSource().getDirectEntity() instanceof Player player){
-                if(player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == TheBoot.BOOT.get()) {
+                if(player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == ModItems.BOOT.get()) {
                     TheBoot.LOGGER.info("Sheep was hit with Alexandrite Axe by " + player.getName().getString());
                 }
                 if(player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == Items.DIAMOND) {

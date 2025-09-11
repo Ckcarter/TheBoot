@@ -17,6 +17,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.rem.theboot.TheBoot;
+import net.rem.theboot.entity.ModEntities;
+import net.rem.theboot.item.ModItems;
 
 
 public class BootEntity extends ThrowableItemProjectile {
@@ -25,16 +27,16 @@ public class BootEntity extends ThrowableItemProjectile {
     }
 
     public BootEntity(Level level, LivingEntity shooter) {
-        super(TheBoot.FIREBALL_ENTITY.get(), shooter, level);
+        super(ModEntities.BOOT_ENTITY.get(), shooter, level);
     }
 
     public BootEntity(Level level, double x, double y, double z) {
-        super(TheBoot.FIREBALL_ENTITY.get(), x, y, z, level);
+        super(ModEntities.BOOT_ENTITY.get(), x, y, z, level);
     }
 
     @Override
     protected Item getDefaultItem() {
-        return TheBoot.BOOT.get();
+        return ModItems.BOOT.get();
     }
 
     private ParticleOptions getParticle() {
@@ -59,7 +61,7 @@ public class BootEntity extends ThrowableItemProjectile {
         if (!this.level().isClientSide()) {
             Entity entity = result.getEntity();
 
-            if (this.getItem().is(TheBoot.LIGHT_BOOT.get())) {
+            if (this.getItem().is(ModItems.LIGHT_BOOT.get())) {
                 for (Player player : this.level().players()) {
                     player.sendSystemMessage(Component.translatable("Hey " + entity.getDisplayName().getString() + ", Boot to the Head!"));
                 }
