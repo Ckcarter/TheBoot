@@ -1,6 +1,7 @@
 package net.rem.theboot;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -29,6 +30,7 @@ import net.rem.theboot.entity.custom.BootEntity;
 import net.rem.theboot.item.custom.BootItem;
 import org.slf4j.Logger;
 
+import static net.rem.theboot.entity.ModEntities.BOOT_ENTITY;
 import static net.rem.theboot.entity.ModEntities.ENTITY_TYPES;
 import static net.rem.theboot.item.ModItems.*;
 
@@ -117,7 +119,8 @@ public class TheBoot {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            event.enqueueWork(() ->
+                    EntityRenderers.register(BOOT_ENTITY.get(), ThrownItemRenderer::new));
         }
 
 
