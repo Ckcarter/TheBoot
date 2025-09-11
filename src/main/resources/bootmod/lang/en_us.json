@@ -1,8 +1,0 @@
-{
-  "item.theboot.boot": "Boot",
-  "item.theboot.light_boot": "Lighter Boot",
-  "message.theboot.light_boot_hit": "boot to the Head",
-  "death.attack.theboot.boot": "%1$s was killed by..., Boot to the Head!",
-  "death.attack.theboot.boot.player": "%1$s was killed by %2$s's Boot to the Head!"
-
-}
