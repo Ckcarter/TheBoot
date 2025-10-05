@@ -62,6 +62,9 @@ public class BootEntity extends ThrowableItemProjectile {
             Entity entity = result.getEntity();
 
             if (this.getItem().is(ModItems.LIGHT_BOOT.get())) {
+                if (entity instanceof LivingEntity livingEntity) {
+                    livingEntity.knockback(0.5F, livingEntity.getX() - this.getX(), livingEntity.getZ() - this.getZ());
+                }
                 for (Player player : this.level().players()) {
                     player.sendSystemMessage(Component.translatable("Hey " + entity.getDisplayName().getString() + ", Boot to the Head!"));
                 }
